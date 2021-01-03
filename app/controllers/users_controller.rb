@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     get '/users/:id' do
         @user = User.find_by(id: params[:id])
         if @user
-            erb :"users/show"
+            erb :"/users/show"
         else
             redirect "/users"
         end
