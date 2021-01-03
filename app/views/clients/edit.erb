@@ -1,0 +1,10 @@
+<h1> Edit <%= @client.name %> </h1>
+
+<form method="POST" action="/clients/<%= @client.id %>/edit">
+    <input type="hidden" value="PATCH" name="_method">
+    Name: <input type="text" name="client[name]" value="<%= @client.name %>"><br>
+    Age: <input type="text" name="client[age]" value="<%= @client.age %>"><br>
+    Gender: <input type="text" name="client[gender]" value="<%= @client.gender %>"><br>
+    Weight: <input type="text" name="client[weight]" value="<%= @client.weight %>"><br>
+    <input type="submit" value="Save">
+</form>
