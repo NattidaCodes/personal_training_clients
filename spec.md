@@ -11,7 +11,8 @@ Specs:
         has_many Clients
 - [x] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
         belongs_to User
-- [ ] Include user accounts with unique login attribute (username or email)
+- [x] Include user accounts with unique login attribute (username or email)
+        Users log in with username and password using password_digest
 - [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
 - [ ] Ensure that users can't modify content created by other users
 - [ ] Include user input validations
