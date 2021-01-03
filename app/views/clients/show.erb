@@ -5,6 +5,7 @@
 <h4> Age: <%= @client.age %></h4>
 <h4> Gender: <%= @client.gender.capitalize %></h4>
 <h4> Weight: <%= @client.weight %></h4>
+<h4> Trained by: <a href="/users/<%= @client.user.id %>"><%= @client.user.username %></h4>
 
 <a href="/clients/<%= @client.id %>/edit"> Edit <%= @client.name %></a>
 
