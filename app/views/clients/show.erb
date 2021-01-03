@@ -7,7 +7,7 @@
 <h4> Weight: <%= @client.weight %></h4>
 <h4> Trained by: <a href="/users/<%= @client.user.id %>"><%= @client.user.username %></h4>
 
-<a href="/clients/<%= @client.id %>/edit"> Edit <%= @client.name %></a>
+<h5><a href="/clients/<%= @client.id %>/edit"> Edit <%= @client.name %></a></h5>
 
 <form method="POST" action="/clients/<%= @client.id %>">
     <input type="hidden" value="DELETE" name="_method">

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
         erb :"/users/index"
     end
 
-    #Show
+    #Show - Details on individual/redirects if :id is nil
     get '/users/:id' do
         @user = User.find_by(id: params[:id])
         if @user
