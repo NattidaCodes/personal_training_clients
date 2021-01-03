@@ -7,7 +7,6 @@ class ClientsController < ApplicationController
 
     #create - process the form and creates a user
     post '/clients' do
-        binding.pry
         client = Client.create(params)
         redirect "/clients"
     end
@@ -49,5 +48,4 @@ class ClientsController < ApplicationController
         @client.destroy
         redirect "/clients"
     end
-
 end
