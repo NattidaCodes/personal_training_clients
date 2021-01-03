@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
     #Signup
     #Load form
     get '/signup' do
