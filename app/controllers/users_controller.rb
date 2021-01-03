@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     #Signup
     #Load form
     get '/signup' do
-        erb :"users/signup"
+        erb :"/users/signup"
     end
 
     #Process form and create user
@@ -14,13 +14,19 @@ class UsersController < ApplicationController
             redirect "/clients"
         else
             @errors = user.errors.full_messages.join(" - ")
-            erb :"users/signup"
+            erb :"/users/signup"
         end
     end
 
+    # get '/users/:id' do
+    #     @user = User.find_by(id: params[:id])
+
+    #     erb :"users/show"
+    # end
+
     #Login
     get '/login' do
-        erb :"users/login"
+        erb :"/users/login"
     end
 
     post '/login' do
