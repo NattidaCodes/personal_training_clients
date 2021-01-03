@@ -21,8 +21,11 @@ class ClientsController < ApplicationController
     #show - get details on an indiviual user
     get '/clients/:id' do
         @client = Client.find_by(id: params[:id])
-
-        erb :"/clients/show"
+        if @client
+            erb :"clients/show"
+        else
+            redirect "/clients"
+        end
     end
 
     #edit - loading a form to edit a client
