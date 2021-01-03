@@ -43,3 +43,23 @@ Client belongs to User(Coach)
    - no view, redirect to index 
    - instance = Model.find_by(id: params[:id])
    - instance.destroy
+
+
+   A client tracking app that can create new clients
+   User should be able to signup, login, and logout
+   User should be able to create new clients
+   User can see list of clients
+   User can edit clients
+   User can delete clients
+
+   User Model 
+   - username
+   - password
+   
+   Client Model
+   - name
+   - age
+   - gender
+   - weight
+   - user_id
+
