@@ -8,4 +8,3 @@ run ApplicationController
 
 use UsersController
 use ClientsController
-use SessionsController
