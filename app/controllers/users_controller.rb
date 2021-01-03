@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+    #Index - Loads all Users
+    get '/users' do
+        @users = User.all
+
+        erb :"/users/index"
+    end
+    
     #Signup
     #Load form
     get '/signup' do
