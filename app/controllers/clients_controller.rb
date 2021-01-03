@@ -6,6 +6,10 @@ class ClientsController < ApplicationController
     end
 
     #create - process the form and creates a user
+    post "/clients" do
+        client = Client.create(params)
+        redirect "/clients"
+    end
 
     #index - loads all clients
     get '/clients' do
