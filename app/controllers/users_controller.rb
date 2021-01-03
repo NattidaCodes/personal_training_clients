@@ -5,6 +5,16 @@ class UsersController < ApplicationController
 
         erb :"/users/index"
     end
+
+    #Show
+    get '/users/:id' do
+        @user = User.find_by(id: params[:id])
+        if @user
+            erb :"users/show"
+        else
+            redirect "/users"
+        end
+    end
     
     #Signup
     #Load form
@@ -24,12 +34,6 @@ class UsersController < ApplicationController
             erb :"/users/signup"
         end
     end
-
-    # get '/users/:id' do
-    #     @user = User.find_by(id: params[:id])
-
-    #     erb :"users/show"
-    # end
 
     #Login
     get '/login' do
