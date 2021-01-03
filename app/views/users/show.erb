@@ -1,3 +1,11 @@
 <h1> Coach </h1>
 
 <h2><%= @user.username %></h2>
+
+<% #display all associated clients %>
+<h4> Clients: </h4>
+<p><ul>
+<% @user.clients.each do |client| %>
+    <li><%= client.name %></li>
+<% end %>
+</ul></p>
