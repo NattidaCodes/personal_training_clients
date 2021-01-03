@@ -7,3 +7,8 @@
 <h4> Weight: <%= @client.weight %></h4>
 
 <a href="/clients/<%= @client.id %>/edit"> Edit <%= @client.name %></a>
+
+<form method="POST" action="/clients/<%= @client.id %>">
+    <input type="hidden" value="DELETE" name="_method">
+    <input type="submit" value="Delete">
+</form>

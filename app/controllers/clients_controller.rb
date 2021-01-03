@@ -33,7 +33,17 @@ class ClientsController < ApplicationController
     end
 
     #update
+    patch '/clients/:id/edit' do
+        @client = Client.find_by(id: params[:id])
+        @client.update(params[:client])
+        redirect "/clients/#{@client.id}"
+    end
 
     #delete
+    delete "/clients/:id" do
+        @client = Client.find_by(id: params[:id])
+        @client.destroy
+        redirect "/clients"
+    end
 
 end
