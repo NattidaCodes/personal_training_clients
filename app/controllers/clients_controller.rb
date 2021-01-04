@@ -31,21 +31,30 @@ class ClientsController < ApplicationController
     #edit - display form to make changes
     get '/clients/:id/edit' do
         @client = Client.find_by(id: params[:id])
-      
-        erb :"/clients/edit"
+        if @client.user == current_user
+            erb :"/clients/edit"
+        else
+            redirect "/clients"
+        end
     end
 
     #update - processes the form and makes the change
     patch '/clients/:id/edit' do
         @client = Client.find_by(id: params[:id])
-        @client.update(params[:client])
-        redirect "/clients/#{@client.id}"
+        if @client.user == current_user
+            @client.update(params[:client])
+        else
+            redirect "/clients/#{@client.id}"
+        end
     end
 
     #delete - process the form and destroys the thing
     delete "/clients/:id" do
         @client = Client.find_by(id: params[:id])
-        @client.destroy
-        redirect "/clients"
+        if @client.user == current_user
+            @client.destroy
+        else
+            redirect "/clients"
+        end
     end
 end
