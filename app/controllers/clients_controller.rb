@@ -7,7 +7,7 @@ class ClientsController < ApplicationController
 
     #create - process the form and creates a user
     post '/clients' do
-        client = Client.create(params)
+        client = current_user.clients.create(params)
         redirect "/clients"
     end
 
@@ -31,7 +31,7 @@ class ClientsController < ApplicationController
     #edit - display form to make changes
     get '/clients/:id/edit' do
         @client = Client.find_by(id: params[:id])
-
+      
         erb :"/clients/edit"
     end
 
