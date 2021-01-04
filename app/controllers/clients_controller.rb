@@ -54,6 +54,7 @@ class ClientsController < ApplicationController
         @client = Client.find_by(id: params[:id])
         if @client.user == current_user
             @client.destroy
+            redirect "/clients"
         else
             redirect "/clients"
         end
