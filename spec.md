@@ -15,11 +15,12 @@ Specs:
        - Users log in with username and password using password_digest
 - [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
        - Client Model has full CRUD functionality
-- [ ] Ensure that users can't modify content created by other users
+- [x] Ensure that users can't modify content created by other users
+       - Restricted to edit, patch, and delete
 - [x] Include user input validations
 - [x] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
        - Validations for presence and uniqueness of username and password length
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
 - [x] You have a large number of small Git commits
