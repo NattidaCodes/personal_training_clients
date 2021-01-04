@@ -43,8 +43,9 @@ class ClientsController < ApplicationController
         @client = Client.find_by(id: params[:id])
         if @client.user == current_user
             @client.update(params[:client])
-        else
             redirect "/clients/#{@client.id}"
+        else
+            redirect "/clients"
         end
     end
 
