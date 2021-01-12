@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
-    #Index - Loads all Users
+
     get '/users' do
         @users = User.all
 
         erb :"/users/index"
     end
 
-    #Show - Details on individual/redirects if :id is nil
     get '/users/:id' do
         @user = User.find_by(id: params[:id])
         if @user
@@ -16,15 +15,11 @@ class UsersController < ApplicationController
         end
     end
     
-    #Signup
-    #Load form
     get '/signup' do
         erb :"/users/signup"
     end
 
-    #Process form and create user
     post '/signup' do
-        ##Create user and log them in
         user = User.new(params[:user])
         if user.save
             session[:user_id] = user.id
@@ -35,7 +30,6 @@ class UsersController < ApplicationController
         end
     end
 
-    #Login
     get '/login' do
         erb :"/users/login"
     end
@@ -50,7 +44,6 @@ class UsersController < ApplicationController
         end
     end
 
-    #Logout
     get '/logout' do
         session.clear
         redirect "/login"
