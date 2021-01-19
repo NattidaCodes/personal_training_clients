@@ -1,21 +1,38 @@
 class ClientsController < ApplicationController
 
     get '/clients/new' do
-        erb :"/clients/new"
+        # whatif a user is not logged in?
+        if logged_in?
+            erb :"/clients/new"
+        else
+            redirect "/login"
+        end
     end
 
     post '/clients' do
         client = current_user.clients.create(params)
-        redirect "/clients"
+        if client.save
+            redirect "/clients"
+        else
+            @errors = client.errors.full_messages.join(" - ")
+            erb :"/clients/new"
+        end
     end
 
     get '/clients' do
-        @clients = Client.all
+        # should someone not logged in be able to see all clients?
+        if logged_in?
+            @clients = Client.all
 
-        erb :"/clients/index"
+            erb :"/clients/index"
+        else
+            redirect "/login"
+        end
     end
 
     get '/clients/:id' do
+        # should someone not logged in be able to see the client?
+        #in the view - should a user not associated to the client even see the edit or delete buttons?
         @client = Client.find_by(id: params[:id])
         if @client
             erb :"/clients/show"

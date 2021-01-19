@@ -7,9 +7,11 @@
 <h4> Weight: <%= @client.weight %></h4>
 <h4> Trainer: <a href="/users/<%= @client.user.id %>"><%= @client.user.username %></h4>
 
+<% if current_user == @client.user %>
 <h5><a href="/clients/<%= @client.id %>/edit"> Edit <%= @client.name %></a></h5>
 
 <form method="POST" action="/clients/<%= @client.id %>">
     <input type="hidden" value="DELETE" name="_method">
     <input type="submit" value="Delete">
 </form>
+<% end %>
