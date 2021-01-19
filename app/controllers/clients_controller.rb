@@ -33,11 +33,15 @@ class ClientsController < ApplicationController
     get '/clients/:id' do
         # should someone not logged in be able to see the client?
         #in the view - should a user not associated to the client even see the edit or delete buttons?
-        @client = Client.find_by(id: params[:id])
-        if @client
-            erb :"/clients/show"
+        if logged_in?
+            @client = Client.find_by(id: params[:id])
+            if @client
+                erb :"/clients/show"
+            else
+                redirect "/clients"
+            end
         else
-            redirect "/clients"
+            redirect "/login"
         end
     end
 

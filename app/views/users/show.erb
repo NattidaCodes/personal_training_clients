@@ -5,6 +5,6 @@
 <h4> Clients: </h4>
 <p><ul>
 <% @user.clients.each do |client| %>
-    <li><%= client.name %></li>
+    <li><a href="/clients/<%= client.id %>"><%= client.name %></a></li>
 <% end %>
 </ul></p>
